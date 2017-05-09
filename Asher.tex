@@ -175,7 +175,21 @@ The admissibility of $(\pi, V)$ means that $V^{K_n}$ is finite-dimensional for e
 
 \item Suppose $\delta = \matr {p^{e_1}} 0 0 {p^{e_2}} $, where $e_1 \leq e_2$ are integers. For each $n \geq 1$ prove the equality of indices:
 $$[K_n:\delta^{-1}K_n\delta \cap K_n]=p^{e_2 - e_1} = [\delta^{-1}K_n\delta:\delta^{-1}K_n\delta \cap K_n]  $$
-\begin{proof} First we will 
+\begin{proof} First we will characterize the subgroup $\delta^{-1}K_n\delta \cap K_n$. 
+\\ Let $M= \matr a b c d \in K_n$, then $\delta M \delta^{-1} = \matr {a} {p^{e_1 - e_2} b} {p^{e_2 - e_1} c} {d}$. Recall that $e_2 - e_1 \geq 0$, and thus the requirements from $a, d, p^{e2 - e1}c$ are  fulfilled.   
+$$M \in \delta^{-1}K_n\delta \Longleftrightarrow \delta M \delta^{-1} \in  K_n \Longleftrightarrow p^n | p^{e1 - e2}b \Longleftrightarrow p^{n + e_2 - e_1} | b$$
+We can now calculate the first index. For any 
+$M = \matr a b c d, N = \matr A B C D \in K_n$ are in the same coset of $\delta^{-1}K_n\delta \cap K_n$ iff $MN^{-1} \in  \delta^{-1}K_n\delta \cap K_n$.
+N is clearly invertible and we can write$N^{-1} = \frac{1}{|N|} \matr {D} {-B} {-C} {A}$
+\\Due to the fact that $K_n$ is a subgroup we only need to check that the upper right element of the result $x = \frac{1}{N}(-aB + bA)$ satisfies  $p^{n + e_2 - e_1} |  x$ (in $\zp$).
+$N \in K_n$ and so $|N| \equiv \frac{1}{|N|} \equiv 1(mod \ p\zp) $. We can than reduce the requirement to
+$bA - aB \equiv  p^{n + e_2 - e_1}$ ,and again using the fact that $A, a \equiv 1(p)$ and thus invertible modulo $ p^{n + e_2 - e_1}$
+\\ We can finally conclude that M, N are in the same coset iff $$\frac{b}{a} \equiv \frac{B}{A}\  mod \ ( p^{n + e_2 - e_1})$$
+And so the coset is determined by this ratio.
+Knowing that $a \equiv 1, b \equiv 0 ( p^n)$, we can conclude that $\frac{b}{a} \equiv 0 (p^n)$. And so the ratio is always part of the set $\{x \cdot p^n \mid x \in \{0, ..., p^{e_2- e_1} -1\}\}$. Choosing $a = 1, b = x\cdot p^n$ each element of this set is obtained. We can conclude that there are exactly $p^{e_2- e_1}$ cosets.
+To calculate the second index will use the following observations:
+\\ $\delta^t = \delta,\ (\delta^{-1})^{t} = \delta^{-1}, \ M \in K_n \text{ iff } M^t \in K_n$
+\\Take any $M \in\delta^{-1}K_n\delta$, we can write $M = \delta^{-1}N\delta$ for $N \in K_n $. Then $M \in K_n$ iff $N \in \delta K_n \delta^{-1}$ iff $N^t \in \delta^{-1} K_n \delta$
 \end{proof}
 \end{enumerate}
 \end{quest}
