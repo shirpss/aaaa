@@ -1,0 +1,838 @@
+\newcommand{\remove}[1]{}
+\newcommand{\ignore}[1]{}
+\newenvironment{ignoreme}{\ignore{}{}}
+
+
+
+\usepackage{amsthm}
+
+
+\usepackage{amsmath,amssymb,booktabs}
+\usepackage{url}
+\usepackage{cite}
+\usepackage{color}
+
+\newcommand{\authnote}[3]{\textcolor{#3}{[{\footnotesize {\bf #1:} { {#2}}}]}}
+%\newcommand{\rnote}[1]{\authnote{R}{#1}{blue}}
+
+\definecolor{DarkBlue}{RGB}{0,0,150}
+\usepackage[colorlinks,linkcolor=DarkBlue,citecolor=DarkBlue]{hyperref}
+%\usepackage[colorlinks,linkcolor=navy,citecolor=NavyBlue]{hyperref}
+
+%%%%%%%%%%%%  Defining theorem-like environments %%%%%%%%%%
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{notation}[definition]{Notation}
+\newtheorem{remark}{Remark}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+
+
+%%%%%%%%%%%%%%%%% SOME BASIC DEFINITIONS %%%%%%%%%%%%%%%%%%
+
+%Security Parameter
+\newcommand{\secparam}{\lambda}
+\newcommand{\secp}{\secparam}
+
+% Vectors, Matrices and such
+
+\def\veca{\vc{a}}
+\def\vecb{\vc{b}}
+\def\vecc{\vc{c}}
+\def\vecd{\vc{d}}
+\def\vece{\vc{e}}
+\def\vecm{\vc{m}}
+\def\vecp{\vc{p}}
+\def\vecs{\vc{s}}
+\def\vect{\vc{t}}
+\def\vecv{\vc{v}}
+\def\vecw{\vc{w}}
+\def\vecx{\vc{x}}
+\def\vecy{\vc{y}}
+
+\def\Z{\mathbb{Z}}
+\def\N{\mathbb{N}}
+\def\R{\mathbb{R}}
+\def\Q{\mathbb{Q}}
+\def\F{\mathsf{F}}
+
+% Emphasis in theorems
+\newcommand{\emphth}[1]{{\rm\sf {#1}}}
+
+% Changing QED symbol in claim proofs
+\newenvironment{claimproof}{\begin{proof}
+\renewcommand{\qedsymbol}{{$\blacksquare$}}
+}{\end{proof}}
+
+
+% Fixing bug in citations inside of brackets.
+\newcommand{\brafix}[1]{[{#1}]}
+\newcommand{\citefix}[2]{{\cite[#1]{#2}}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Calligraphic and blackboard type letters.
+
+\def\cA{{\cal A}}
+\def\cB{{\cal B}}
+\def\cC{{\cal C}}
+\def\cD{{\cal D}}
+\def\cE{{\cal E}}
+\def\cF{{\cal F}}
+\def\cG{{\cal G}}
+\def\cH{{\cal H}}
+\def\cI{{\cal I}}
+\def\cJ{{\cal J}}
+\def\cK{{\cal K}}
+\def\cL{{\cal L}}
+\def\cM{{\cal M}}
+\def\cN{{\cal N}}
+\def\cO{{\cal O}}
+\def\cP{{\cal P}}
+\def\cQ{{\cal Q}}
+\def\cR{{\cal R}}
+\def\cS{{\cal S}}
+\def\cT{{\cal T}}
+\def\cU{{\cal U}}
+\def\cV{{\cal V}}
+\def\cW{{\cal W}}
+\def\cX{{\cal X}}
+\def\cY{{\cal Y}}
+\def\cZ{{\cal Z}}
+%%%%%%%%%%%%%%%%%
+\def\bbC{{\mathbb C}}
+\def\bbE{{\mathbb E}}
+\def\bbF{{\mathbb F}}
+\def\bbG{{\mathbb G}}
+\def\bbM{{\mathbb M}}
+\def\bbN{{\mathbb N}}
+\def\bbQ{{\mathbb Q}}
+\def\bbR{{\mathbb R}}
+\def\bbV{{\mathbb V}}
+\def\bbZ{{\mathbb Z}}
+
+\def\Zq{\bbZ_q}
+
+\def\algA{{\mathsf{A}}}
+\def\algE{{\mathsf{E}}}
+\def\algP{{\mathsf{P}}}
+\def\algM{{\mathsf{M}}}
+\def\algS{{\mathsf{S}}}
+\def\algV{{\mathsf{V}}}
+
+\def\IP{{\left<\algP,\algV\right>}}
+
+
+%%%%%%%%%%%%%%%%%
+
+
+% Rounding commands
+
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+\newcommand{\round}[1]{\left\lfloor #1 \right\rceil}
+
+
+% Other short-hands
+
+\def\binset{\{0,1\}}
+\def\pmset{\{\pm 1\}}
+\def\ind{\mathbbm{1}}
+%\def\ind{\mathbf{1}}
+
+\newcommand{\abs}[1]{\left\vert {#1} \right\vert}
+\newcommand{\norm}[1]{\left\| {#1} \right\|}
+\newcommand{\norminf}[1]{\left\| {#1} \right\|_{\infty}}
+
+
+% Assignments
+\def\getsr{\stackrel{\scriptscriptstyle{\$}}{\gets}}
+\def\getsd{{:=}}
+%\def\bydef{\stackrel{.}{=}}
+\def\bydef{\triangleq}
+\def\getsf{{\gets}}
+
+
+
+% Asymptotics
+
+\def\poly{{\rm poly}}
+\def\polylog{{\rm polylog}}
+\def\loglog{{\rm loglog}}
+\def\polyloglog{{\rm polyloglog}}
+\def\negl{{\rm negl}}
+\newcommand{\ppt}{\mbox{{\sc ppt}}}
+\def\Otilde{\widetilde{O}}
+
+% Indistinguishability
+\newcommand{\cind}{{\ \stackrel{c}{\approx}\ }}
+\newcommand{\compind}{\cind}
+\newcommand{\sind}{{\ \stackrel{s}{\approx}\ }}
+
+%\newcommand{\sind}[1][\epsilon]{{\ \stackrel{{#1}}{\approx}_{s}\ }}
+%\newcommand{\epssind}{{\ \stackrel{{\epsilon}}{\approx}_{s}\ }}
+
+
+% Complexity classes
+
+\def\NP{\mathbf{NP}}
+\def\Ppoly{{\mathbf{P}/\poly}}
+
+
+% Cryptographic assumptions
+
+\newcommand{\ddh}{\mathrm{DDH}}
+\newcommand{\cdh}{\mathrm{CDH}}
+\newcommand{\dlin}{\text{\rm $d$LIN}}
+\newcommand{\lin}{\text{\rm Lin}}
+\newcommand{\sxdh}{\mathrm{SXDH}}
+\newcommand{\rsa}{\mathrm{RSA}}
+\newcommand{\sis}{\mathrm{SIS}}
+\newcommand{\odsis}{\text{\rm 1D-SIS}}
+\newcommand{\rodsis}{\text{\rm 1D-SIS-R}}
+\def\odsisr{\rodsis}
+\newcommand{\isis}{\mathrm{ISIS}}
+\newcommand{\lwe}{\mathrm{LWE}}
+\newcommand{\dlwe}{\mathrm{DLWE}}
+\newcommand{\qr}{\mathrm{QR}}
+
+%\newcommand{\gapsvp}{\mathrm{GapSVP}}
+%\newcommand{\sivp}{\mathrm{SIVP}}
+
+\def\bbZ{\mathbb{Z}}
+\def\gapsvp{\mathsf{GapSVP}}
+\def\gapSVP{\gapsvp}
+\def\gapsivp{\mathsf{GapSIVP}}
+\def\SIVP{\mathsf{SIVP}}
+\def\sivp{\SIVP}
+
+% Types of attacks
+
+\newcommand{\adv}{\mathrm{Adv}}
+\newcommand{\simul}{\mathrm{Sim}}
+\newcommand{\simulator}{\mathrm{Sim}}
+\newcommand{\dst}{\mathrm{Dist}}
+\newcommand{\leak}{\mathrm{Leak}}
+\newcommand{\forge}{\mathrm{Forge}}
+\newcommand{\col}{\mathrm{Col}}
+\newcommand{\invt}{\mathrm{Inv}}
+\newcommand{\cpa}{\text{\rm CPA}}
+\newcommand{\kdm}{\mathrm{KDM}}
+\newcommand{\kdi}{\mathrm{KDM}^{(1)}}
+\newcommand{\kdmn}{\mathrm{KDM}^{(\usr)}}
+\newcommand{\good}{\mathrm{GOOD}}
+\newcommand{\legal}{\mathrm{L}}
+
+
+% Linear algebra
+
+\newcommand{\mx}[1]{\mathbf{{#1}}}
+\newcommand{\vc}[1]{\mathbf{{#1}}}
+\newcommand{\gvc}[1]{\bm{{#1}}}
+%\newcommand{\vc}[1]{\gvc{{#1}}}
+
+\newcommand{\zo}{\{0,1\}}
+
+% Probability
+
+\newcommand{\Ex}{\mathop{\bbE}}
+\newcommand{\cov}{\mathop{\text{\rm Cov}}}
+
+%\newcommand{\sd}{\mathop{\text{\tt dist}}}
+\newcommand{\sd}{\mathop{\Delta}}
+
+
+
+% Cryptographic elements
+
+%\newcommand{\pub}{pk}
+\newcommand{\aux}{\mathsf{aux}}
+
+\newcommand{\sk}{ \mathsf{sk}}
+\newcommand{\ek}{ \mathsf{ek}}
+\newcommand{\dk}{ \mathsf{dk}}
+\newcommand{\tk}{ \mathsf{rk}}
+\newcommand{\rk}{\tk}
+\newcommand{\msk}{ \mathsf{msk}}
+\newcommand{\pk}{ \mathsf{pk}}
+\newcommand{\mpk}{ \mathsf{mpk}}
+\newcommand{\vk}{ \mathsf{vk}}
+\newcommand{\pp}{ \mathsf{pp}}
+\newcommand{\out}{{\rm{out}}}
+\newcommand{\inp}{{\rm{in}}}
+\newcommand{\start}{{\rm{start}}}
+\newcommand{\accept}{{\rm{accept}}}
+\newcommand{\tgt}{{\rm{tgt}}}
+
+\def\PK{\mathsf{PK}}
+\def\MPK{\mathsf{MPK}}
+\def\MSK{\mathsf{MSK}}
+\def\SK{\mathsf{SK}}
+\def\bydef{:=}
+
+% Functinonal encryption keys
+\newcommand{\fempk}{\MPK}
+\newcommand{\femsk}{\MSK}
+
+
+\newcommand{\fhepk}{\PK}
+\newcommand{\fhesk}{\SK}
+
+
+\def\CT{\mathsf{CT}}
+
+% IBE keys
+\newcommand{\ibempk}{{MPK_{ibe}}}
+\newcommand{\ibemsk}{{MSK_{ibe}}}
+\newcommand{\ID}{{ID}}
+\newcommand{\id}{{ID}}
+\newcommand{\pind}{\mathsf{ind}}
+\newcommand{\halfq}{\lfloor q/2 \rfloor}
+\newcommand{\nand}{\;\textsc{nand}\;}
+\newcommand{\band}{\;\textsc{and}\;}
+\newcommand{\bor}{\;\textsc{or}\;}
+
+\newcommand{\crs}{\text{\sf crs}}
+
+\newcommand{\params}{\mathsf{params}}
+\newcommand{\state}{{setupstate}}
+
+\newcommand{\query}{{query}}
+\newcommand{\qstate}{{qstate}}
+\newcommand{\resp}{{resp}}
+
+% Protocols
+\newcommand{\ibe}{\mathrm{IBE}}
+\newcommand{\fhe}{\mathrm{FHE}}
+\newcommand{\gfe}{\mathrm{GFE}}
+\newcommand{\pke}{\mathrm{PKE}}
+\newcommand{\atoe}{\mathrm{TOR}}
+\newcommand{\tor}{\mathrm{TOR}}
+\newcommand{\awtoe}{\mathrm{wTOR}}
+\newcommand{\ator}{\mathrm{wTOR}}
+\newcommand{\fe}{\mathrm{FE}}
+\newcommand{\mpc}{\mathrm{MPC}}
+
+% Algorithms
+
+
+\newcommand{\keygen}{\mathsf{Keygen}}
+\newcommand{\encode}{\mathsf{Encode}}
+\newcommand{\recodegen}{\mathsf{ReKeyGen}}
+\newcommand{\simrecodegen}{\mathsf{SimReKeyGen}}
+\newcommand{\recode}{\mathsf{Recode}}
+\newcommand{\decode}{\mathsf{Decrypt}}
+
+\newcommand{\dmax}{d_{\mathrm{max}}}
+
+\newcommand{\gen}{\mathsf{Gen}}
+\newcommand{\eval}{\mathsf{Eval}}
+\newcommand{\Eval}{\eval}
+\newcommand{\setup}{\mathsf{Params}}
+%\newcommand{\extract}{\mathsf{Extract}}
+\newcommand{\enc}{\mathsf{Enc}}
+\newcommand{\dec}{\mathsf{Dec}}
+\newcommand{\eqct}{\mathsf{Equivocate}}
+
+\newcommand{\symname}{\ssym}
+\newcommand{\symkeygen}{\mathsf{SYM.Setup}}
+\newcommand{\symgen}{\symkeygen}
+\newcommand{\symsetup}{\symkeygen}
+\newcommand{\symenc}{\mathsf{SYM.Enc}}
+\newcommand{\symdec}{\mathsf{SYM.Dec}}
+
+\newcommand{\pkesetup}{\mathsf{PKE.Setup}}
+\newcommand{\pkeenc}{\mathsf{PKE.Enc}}
+\newcommand{\pkedec}{\mathsf{PKE.Dec}}
+
+\newcommand{\shname}{\mathsf{SH}}
+\newcommand{\shkeygen}{\mathsf{SH.Keygen}}
+\newcommand{\shgen}{\shkeygen}
+\newcommand{\shenc}{\mathsf{SH.Enc}}
+\newcommand{\shdec}{\mathsf{SH.Dec}}
+\newcommand{\sheval}{\mathsf{SH.Eval}}
+
+\newcommand{\hename}{\mathsf{HE}}
+\newcommand{\hekeygen}{\mathsf{HE.Keygen}}
+
+\newcommand{\hegen}{\hekeygen}
+\newcommand{\heenc}{\mathsf{HE.Enc}}
+\newcommand{\hedec}{\mathsf{HE.Dec}}
+\newcommand{\heeval}{\mathsf{HE.Eval}}
+\newcommand{\hesetup}{\mathsf{HE.Setup}}
+
+
+\newcommand{\fhname}{\mathsf{FH}}
+\newcommand{\fhkeygen}{\mathsf{FH.Keygen}}
+\newcommand{\fhenc}{\mathsf{FH.Enc}}
+\newcommand{\fhdec}{\mathsf{FH.Dec}}
+\newcommand{\fheval}{\mathsf{FH.Eval}}
+
+\newcommand{\fhename}{\mathsf{FHE}}
+\newcommand{\fhekeygen}{\mathsf{FHE.Keygen}}
+\newcommand{\fhegen}{\fhekeygen}
+\newcommand{\fheenc}{\mathsf{FHE.Enc}}
+\newcommand{\fhedec}{\mathsf{FHE.Dec}}
+\newcommand{\fheeval}{\mathsf{FHE.Eval}}
+\newcommand{\fhesetup}{\mathsf{FHE.Setup}}
+
+\newcommand{\gswsetup}{\mathsf{SK.Setup}}
+\newcommand{\gswgen}{\mathsf{SK.Keygen}}
+\newcommand{\gswenc}{\mathsf{SK.Enc}}
+\newcommand{\gswdec}{\mathsf{SK.Dec}}
+\newcommand{\gsweval}{\mathsf{SK.Eval}}
+
+\newcommand{\mwname}{\mathsf{SHMK}}
+\newcommand{\mwenc}{\mathsf{SHMK.Enc}}
+\newcommand{\mwdec}{\mathsf{SHMK.Dec}}
+\newcommand{\mweval}{\mathsf{SHMK.Eval}}
+\newcommand{\mwext}{\mathsf{SHMK.Extend}}
+\newcommand{\mwexp}{\mathsf{SHMK.Expand}}
+
+\newcommand{\mhmuname}{\mathsf{FDMK}}
+\newcommand{\mhmusetup}{\mathsf{FDMK.Setup}}
+\newcommand{\mhmugen}{\mathsf{FDMK.Keygen}}
+\newcommand{\mhmuenc}{\mathsf{FDMK.Enc}}
+\newcommand{\mhmudec}{\mathsf{FDMK.Dec}}
+\newcommand{\mhmueval}{\mathsf{FDMK.Eval}}
+\newcommand{\mhmunand}{\mathsf{FDMK.NAND}}
+
+\newcommand{\lmkname}{\mathsf{LMK}}
+\newcommand{\lmksetup}{\mathsf{LMK.Setup}}
+\newcommand{\lmkgen}{\mathsf{LMK.Keygen}}
+\newcommand{\lmkenc}{\mathsf{LMK.Enc}}
+\newcommand{\lmkdec}{\mathsf{LMK.Dec}}
+
+\newcommand{\gennext}{\mathsf{GenNext}}
+\newcommand{\conv}{\mathsf{Conv}}
+
+% Lattice Stuff
+
+\newcommand{\trapgen}{\mathsf{TrapGen}}
+\newcommand{\trapinvert}{\mathsf{TrapInv}}
+\newcommand{\gpvsamp}{\mathsf{GPVSamp}}
+
+\newcommand{\lat}{\Lambda}
+\newcommand{\shiftedperplat}[2]{\lat^{\perp}_{{#1}+{#2}}}
+\newcommand{\shiftedlat}[2]{\lat_{{#1}+{#2}}}
+
+\newcommand{\vecpsi}{\boldsymbol{\psi}}
+\newcommand{\vecmu}{\boldsymbol{\mu}}
+\newcommand{\vecgamma}{\boldsymbol{\gamma}}
+\newcommand{\vecr}{\mathbf{r}}
+\newcommand{\vecu}{\mathbf{u}}
+\newcommand{\vecg}{\mathbf{g}}
+
+
+\newcommand{\GSnorm}{}
+
+% Secret sharing
+\newcommand{\sshare}{\mathsf{SS.Share}}
+\newcommand{\srecover}{\mathsf{SS.Reconstruct}}
+
+% Randomized encoding
+\newcommand{\reencode}{\mathsf{RE.Encode}}
+\newcommand{\redecode}{\mathsf{RE.Decode}}
+\newcommand{\resim}{\mathsf{RE.Sim}}
+
+\newcommand{\yaogen}{\mathsf{Yao.Gen}}
+\newcommand{\yaoeval}{\mathsf{Yao.Eval}}
+\newcommand{\yaoext}{\mathsf{Yao.Extract}}
+\newcommand{\yaosim}{\mathsf{Yao.Sim}}
+
+
+\newcommand{\randgen}{\mathsf{Rand.Gen}}
+\newcommand{\calcpshare}{\mathsf{Calc.PShare}}
+
+\newcommand{\ssgen}{\mathsf{SS.Gen}}
+\newcommand{\vssgen}{\mathsf{VSS.Gen}}
+\newcommand{\gcgen}{\mathsf{GC.Gen}}
+
+\newcommand{\Setup}{\mathsf{Setup}}
+\newcommand{\KeyGen}{\mathsf{KeyGen}}
+\newcommand{\Enc}{\mathsf{Enc}}
+\newcommand{\Dec}{\mathsf{Dec}}
+\newcommand{\Sim}{\mathsf{Sim}}
+
+\newcommand{\ibesetup}{\mathsf{IBE.Setup}}
+\newcommand{\ibekeygen}{\mathsf{IBE.Keygen}}
+\newcommand{\ibeenc}{\mathsf{IBE.Enc}}
+\newcommand{\ibedec}{\mathsf{IBE.Dec}}
+\newcommand{\ibepp}{\mathsf{IBE.PP}}
+
+
+\newcommand{\fesetup}{\mathsf{FE.Setup}}
+\newcommand{\fekeygen}{\mathsf{FE.Keygen}}
+\newcommand{\feenc}{\mathsf{FE.Enc}}
+\newcommand{\fedec}{\mathsf{FE.Dec}}
+
+\newcommand{\pesetup}{\Setup}
+\newcommand{\pekeygen}{\KeyGen}
+\newcommand{\peenc}{\Enc}
+\newcommand{\pedec}{\Dec}
+
+\newcommand{\bdsetup}{\mathsf{BdFE.Setup}}
+\newcommand{\bdkeygen}{\mathsf{BdFE.Keygen}}
+\newcommand{\bdenc}{\mathsf{BdFE.Enc}}
+\newcommand{\bddec}{\mathsf{BdFE.Dec}}
+\newcommand{\bdsim}{\mathsf{BdFE.Sim}}
+
+\newcommand{\bfsetup}{\mathsf{BFFE.Setup}}
+\newcommand{\bfkeygen}{\mathsf{BFFE.Keygen}}
+\newcommand{\bfenc}{\mathsf{BFFE.Enc}}
+\newcommand{\bfdec}{\mathsf{BFFE.Dec}}
+\newcommand{\bfsim}{\mathsf{BFFE.Sim}}
+
+
+\newcommand{\oneqsetup}{\mathsf{OneQFE.Setup}}
+\newcommand{\oneqkeygen}{\mathsf{OneQFE.Keygen}}
+\newcommand{\oneqenc}{\mathsf{OneQFE.Enc}}
+\newcommand{\oneqdec}{\mathsf{OneQFE.Dec}}
+\newcommand{\oneqsim}{\mathsf{OneQFE.Sim}}
+
+
+
+% Primitives
+\newcommand{\prf}{\mathsf{PRF}}
+
+\newcommand{\pe}{\mathcal{ABE}}
+\newcommand{\pename}{\pe}
+\newcommand{\ibename}{\mathcal{IBE}}
+\newcommand{\ssym}{\mathcal{SYM}}
+\newcommand{\pkename}{\mathcal{PKE}}
+\newcommand{\ssname}{\mathcal{SS}}
+\newcommand{\fename}{\mathcal{FE}}
+\newcommand{\yaogs}{\mathcal{GS}}
+\newcommand{\re}{\mathcal{RE}}
+\newcommand{\bdfename}{\mathcal{BDFE}}
+\newcommand{\oneqfename}{\mathcal{ONEQFE}} %??
+\newcommand{\bffename}{\mathcal{BFFE}}
+
+\newcommand{\nizk}{\text{\rm NIZK}}
+\newcommand{\ltdf}{\text{\rm LTDF}}
+
+
+% Tiny subscript
+
+\newcommand{\tsub}[2]{{{#1}_{\scriptscriptstyle #2}}}
+
+
+% "TH" symbol
+
+\newcommand{\thh}{{\mbox{\tiny th}}}
+
+
+% Bold paragraph (similar to \paragraph*{})
+
+\newcommand{\boldpar}[1]{\vspace{3pt}\par\noindent\textbf{#1}}
+
+
+
+\newcommand{\rnote}[1]{\authnote{R}{#1}{blue}}
+\newcommand{\znote}[1]{\authnote{Z}{#1}{red}}
+
+
+
+%%%%%%%%%%%%%%%%%%% Vnote  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcounter{auxthmctr}
+\newcounter{auxsecctr}
+
+% Document specific definitions
+
+\newcommand{\Adv}{\mathsf{Adv}}
+\newcommand{\AdvPE}[1]{\mathsf{Adv}^{\textsc{pe}}_{#1}(\secp)}
+\newcommand{\AdvCOW}[1]{\mathsf{Adv}^{\textsc{cp}}_{#1}(\secp)}
+\newcommand{\idl}[1]{\left\langle{#1}\right\rangle}
+\newcommand{\rlwe}{\mathsf{RLWE}}
+\newcommand{\plwe}{\mathsf{PLWE}}
+\newcommand{\drlwe}{\text{\rm G-RLWE}}
+\newcommand{\sdrlwe}{\text{\rm RLWE}}
+\newcommand{\vssm}{\text{\rm SVSS}}
+
+\newcommand{\ekdm}{{\cE_{\kdm}}}
+\newcommand{\usr}{{\nu}}
+
+\newcommand{\add}{\mathsf{add}}
+\newcommand{\mlt}{\mathsf{mult}}
+
+\newcommand{\hc}{\hat{c}}
+%\newcommand{\vsig}{\gvc{\sigma}}
+%\newcommand{\hvsig}{\hat{\gvc{\sigma}}}
+
+\newcommand{\mcyc}{{\Phi_{2^{\round{\log \secp}}}}}
+
+\newcommand{\otild}{{\widetilde{O}}}
+\newcommand{\omtild}{{\widetilde{\Omega}}}
+
+\newcommand{\linf}{{\ell_{\infty}}}
+
+\newcommand{\gf}{{\text{GF}}}
+
+\newcommand{\zset}[1]{\{0, \ldots, {#1}\}}
+
+\newcommand{\medskipo}{\medskip}
+\newcommand{\medskipoo}{\medskipo}
+
+
+\newcommand{\db}{{\mathtt{DB}}}
+\newcommand{\dbs}{{|\db|}}
+
+\newcommand{\esw}{\shname}
+\newcommand{\esym}{\symname}
+
+\newcommand{\hsk}{{hsk}}
+\newcommand{\hpk}{{hpk}}
+\newcommand{\hevk}{{hevk}}
+\def\hesk{\hsk}
+\def\hepk{\hpk}
+
+\newcommand{\symsk}{{symsk}}
+
+
+\newcommand{\hvcs}{\hat{\vc{s}}}
+\newcommand{\hmxA}{\hat{\mx{A}}}
+\newcommand{\hvce}{\hat{\vc{e}}}
+\newcommand{\hvcb}{\hat{\vc{b}}}
+\newcommand{\he}{{\hat{e}}}
+\newcommand{\heta}{{\hat{\eta}}}
+\newcommand{\hpsi}{{\hat{\psi}}}
+\newcommand{\hPsi}{{\hat{\Psi}}}
+\newcommand{\hchi}{{\hat{\chi}}}
+\newcommand{\hvcv}{{\hat{\vc{v}}}}
+\newcommand{\hw}{{\hat{w}}}
+\newcommand{\hvca}{{\hat{\vc{a}}}}
+\newcommand{\hb}{{\hat{b}}}
+\newcommand{\hB}{{\hat{B}}}
+\newcommand{\homega}{{\hat{\omega}}}
+
+
+
+\newcommand{\pir}{\mathrm{PIR}}
+
+
+\def\Hrand{H_{\mathsf{rand}}}
+\def\polyclass{\mathsf{Poly}}
+\def\colarith{\mathsf{Arith}}
+
+%\newcommand{\tab}{\ \ \ }
+\newcommand{\ttab}{\ \ \ \ \ \ }
+\newcommand{\tttab}{\ \ \ \ \ \ \ \ \ }
+
+\def\CT{\mathsf{ct}}
+\def\ct{\mathsf{ct}}
+\def\setI{\mathcal I}
+\def\funct{F}
+\def\cfam{\mathcal{C}}
+\def\tfunct{\mathcal{G}}
+\def\fn{F}
+\def\tfn{G}
+
+
+\def\redecode{\mathsf{RE.Decode}}
+\def\reencode{\mathsf{RE.Encode}}
+\def\resim{\mathsf{RE.Sim}}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\newcommand{\matA}{\mathbf{A}}
+\newcommand{\matB}{\mathbf{B}}
+\newcommand{\matE}{\mathbf{E}}
+\newcommand{\matM}{\mathbf{M}}
+\newcommand{\matT}{\mathbf{T}}
+\newcommand{\matR}{\mathbf{R}}
+\def\matr{\matR}
+
+\newcommand{\mA}{\matA}
+\newcommand{\matU}{\mathbf{U}}
+\newcommand{\matV}{\mathbf{V}}
+
+\newcommand{\trapsamp}{\mathsf{TrapSamp}}
+\newcommand{\eqnsolve}{\mathsf{EqnSolve}}
+
+
+\newcommand{\absnewline}{\ifnum\full=0 \\ \fi}
+
+\renewcommand{\cD}{\Psi}
+
+
+\def\apf{{\cal APF}}
+\def\tinyapf{{\scriptscriptstyle\cal APF}}
+\def\apfcirc{{\cH^\tinyapf_{\secp,k}}}
+\def\apfsize{{z^\tinyapf(\secp)}}
+\def\apfdepth{{d^\tinyapf(\secp)}}
+
+\def\pubp{{\cal PP}}
+
+
+\def\vech{\vc{h}}
+\def\Ginv{\mathbf{G}^{-1}}
+
+\newcommand{\ginv}[1]{\mx{G}^{-1}({#1})}
+\def\str{\vc{s}^T}
+%\def\etr{\vc{e}^T}
+%\def\etr{\mathsf{noise}}
+\def\nse{\mathsf{noise}}
+\def\noise{\nse}
+\def\ma{\mx{A}}
+\def\univ{\cU}
+
+
+\newcommand{\psp}[2]{{#1}^{({#2})}}
+
+
+\def\univckt{\univ}
+\newcommand{\lwround}[2]{\round{#2}_{#1}}
+\newcommand{\LWRound}[2]{\lwround{#1}{#2}}
+
+
+
+\newcommand{\lwr}{\mathrm{LWR}}
+
+\def\htt{{t'}}
+
+
+\def\vecd{\mathbf{d}}
+
+
+\def\Ginv{\mathbf{G}^{-1}}
+
+
+
+\def\genpp{\mathsf{MatrixGen}}
+\def\simpp{\mathsf{SimPP}}
+%\def\matgen{\mathsf{MatrixCompute}}
+\def\simmatgen{\mathsf{SimMatrixGen}}
+%\def\ctgen{\mathsf{LWECompute}}
+\def\computeR{\mathsf{ComputeR}}
+\def\genmaster{\mathsf{GenMaster}}
+
+
+\def\ctgen{\computeC}
+
+
+\def\matB{\mathbf{B}}
+\def\matC{\mathbf{C}}
+\def\matD{\mathbf{D}}
+
+
+\def\KeyGen{\mathsf{KeyGen}}
+\def\Puncture{\mathsf{Puncture}}
+\def\Constrain{\mathsf{Constrain}}
+\def\EvalP{\mathsf{EvalP}}
+
+\def\vecz{\mathbf{z}}
+\def\matS{\mathbf{S}}
+\def\vech{\mathbf{h}}
+
+\def\matG{\mathbf{G}}
+
+\def\CPRF{\mathcal{CPRF}}
+\def\cprf{\CPRF}
+
+\def\scprf{\mathcal{SCPRF}}
+
+
+
+\def\OKeyGen{\mathsf{KeyGen}}
+\def\OConstrain{\mathsf{Constrain}}
+\def\OEval{\mathsf{Eval}}
+\def\OConstrainEval{\mathsf{ConstrainEval}}
+\def\KeyGen{\OKeyGen}
+\def\Constrain{\OConstrain}
+\def\Eval{\OEval}
+\def\ConstrainEval{\OConstrainEval}
+
+
+\def\matI{\mathbf{I}}
+\def\vecst{\vecs^T}
+\def\vecet{\vece^T}
+
+
+\def\computeA{\mathsf{ComputeA}}
+\def\computeC{\mathsf{ComputeC}}
+\def\computeR{\mathsf{ComputeR}}
+
+
+
+\def\glbmat{{\mx{\hat{D}}}}
+\def\globmat{\glbmat}
+\def\mata{\matA}
+\def\matb{\matB}
+\def\matc{\matC}
+\def\matd{\matD}
+
+
+\def\pspxi{\psp{x}{i}}
+\def\pspwi{\psp{w}{i}}
+
+\def\vcd{\vc{d}}
+\def\vcdd{\vc{d}'}
+
+
+% Experimental hybrid counter system
+
+\newcounter{hybridcount}
+\newcounter{prevhybridcount}
+\newcounter{nexthybridcount}
+
+\newcommand{\resethyb}{\setcounter{prevhybridcount}{-2} \setcounter{nexthybridcount}{0} \setcounter{hybridcount}{-1}}
+\newcommand{\newhyb}{\stepcounter{prevhybridcount}\stepcounter{nexthybridcount}\refstepcounter{hybridcount}}
+\newcommand{\thishyb}{\arabic{hybridcount}}
+\newcommand{\prevhyb}{\arabic{prevhybridcount}}
+\newcommand{\nexthyb}{\arabic{nexthybridcount}}
+
+\def\hyb{\mathsf{H}}
+
+
+% % % % % % % % % % %
+
+
+\def\stb{\vc{u}}
+
+
+\def\str{\vc{s}^T}
+\def\nse{\mathsf{noise}}
+\def\noise{\nse}
+\def\ma{\mx{A}}
+\def\mb{\mx{B}}
+\def\mc{\mx{C}}
+\def\mr{\mx{R}}
+\def\mg{\mx{G}}
+\def\mgi{\mx{G}^{-1}}
+\def\mh{\mx{H}}
+
+
+
+\newcommand{\mtd}[2]{\mx{{#1}}^{-1}_{{#2}}}
+\newcommand{\mtdr}[1]{\mtd{{#1}}{\tau}}
+
+\def\tda{\mtd{A}{\tau_0}}
+\def\vmc{\vec{\mc}}
+\def\vmb{\vec{\mb}}
+\def\vmr{\vec{\mr}}
+\def\vmg{\vec{\mg}}
+\def\mhs{\mh^*}
+\def\vmhs{\vec{\mh}^*}
+
+
+\newcommand{\evk}{{evk}}
+\newcommand{\msg}{{\mu}}
+
+\newcommand{\ckt}{\Psi}
+\newcommand{\prog}{\Pi}
+\newcommand{\var}{\mathsf{var}}
+
+\def\lq{\lceil \log q \rceil}
+\def\ellq{{\ell_q}}
