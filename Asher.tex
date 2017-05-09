@@ -171,6 +171,7 @@ The admissibility of $(\pi, V)$ means that $V^{K_n}$ is finite-dimensional for e
 \end{quest}
 
 \begin{quest}%TODO 6.22%
+Recall that $\mu$ is a left invariant measure on the collection of compact open subsets of $\glzp$
 \begin{enumerate}
 
 \item Suppose $\delta = \matr {p^{e_1}} 0 0 {p^{e_2}} $, where $e_1 \leq e_2$ are integers. For each $n \geq 1$ prove the equality of indices:
@@ -192,6 +193,23 @@ To calculate the second index will use the following observations:  $\delta^t = 
 \\From the previous observations we can verify that $\varphi$ maps $K_n$ onto $\delta^{-1} K_n  \delta$ and vice versa. And thus it induces an isomorphism between them and we conclude that
 $$[K_n:\delta^{-1}K_n\delta \cap K_n]=
 [\varphi(K_n):\varphi(\delta^{-1}K_n\delta \cap K_n)] = [\delta^{-1}K_n\delta:\delta^{-1}K_n\delta \cap K_n] = p^{e_2 - e_1} $$
+\end{proof}
+\item Suppose $g \in \glqp$. prove the equality of indices: 
+\\ $[K_n:g^{-1}K_ng \cap K_n] =  [g^{-1}K_n g :g^{-1}K_n g \cap K_n]$
+\begin{proof}
+Using the Cartan decomposition any such $g \in \glqp$ can be written as $g = x \delta y$ with $x,y \in \glzp$ and $\delta = \delta(e_1,e_2)$ as in part 1.
+We define an autorphism $\psi: \glqp \rightarrow \glqp$ by: $\psi: M \mapsto y M y^{-1}$.
+\\ $\psi(K_n) = K_n$ (as $y \in \glzp$, $K_n\lhd \glzp)$
+\\ $\psi(g^{-1}K_ng) =y \cdot( y^{-1}\delta^{-1}x^{-1}K_n x \delta y) \cdot y^{-1} = \delta^{-1}(x^{-1}K_nx)\delta = \delta^{-1}K_n\delta$
+\\ Using those observations:
+\\ $[K_n:g^{-1}K_ng \cap K_n]\stackrel{\psi}{=}[K_n:\delta^{-1}K_n\delta \cap K_n] \stackrel{1}{=}  [\delta^{-1}K_n\delta:\delta^{-1}K_n\delta \cap K_n] \stackrel{\psi^{-1}}{=} [g^{-1}K_n g :g^{-1}K_n g \cap K_n]$
+\end{proof}
+\item Let I be the common index from part (2) prove that:
+$$ \mu(K_n) = I \cdot \mu(g^{-1}K_ng \cap K_n)= \mu(g^{-1}K_ng)$$ for all $g \in \glqp$ Deduce that $\mu$ is right invariant.
+\begin{proof}
+First notice that $g^{-1}K_ng$ in an compact open subset of $\glqp$ as multiplying by an element from wither side is an continuous and open morphism. An intersection of open compact subsets is also compact and open, and thus $\mu(g^{-1} K_n g)$, $\mu(g^{-1} K_n g \cap K_n)$ are well defined.
+Using part 2, we know that both $K_n$ and $g^{-1} K_n g$  are a disjoint union of  I cosets of $ g^{-1} K_n g \cap K_n$ and thus $\mu(K_n) = I \mu( g^{-1} K_n g \cap K_n) = \mu( g^{-1} K_n g)$.
+$\mu(K_n) = \mu(  g^{-1} K_n g) \stackrel{*}{=} \mu(g \cdot  g^{-1} K_n g) = \mu(K_n \cdot g)$ (we used the fact that $\mu$ is left invariant in *). And thus is right invariant.
 \end{proof}
 \end{enumerate}
 \end{quest}
